@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_dashboard"
     android:layout_width="match_parent"
@@ -11,17 +12,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="foody.jakzaizzat.com.foody.ui.DashboardActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/food"
+        android:id="@+id/dashboardFoodImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
     <TextView
-        android:text="Welcome to Dashboard Bitch"
+        android:text="RM 3.80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/dashboardFoodImg"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/dashboardFoodPrice"/>
+
+    <TextView
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="129dp"
-        android:id="@+id/textView"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:fontFamily="monospace"
-        android:textStyle="normal|bold"
-        android:lineSpacingExtra="14sp"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/dashboardUserText"/>
+
+    <TextView
+        android:text="Food Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dashboardFoodName"
+        android:fontFamily="sans-serif"
+        android:layout_alignBottom="@+id/dashboardFoodImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/DashboardAddNew"/>
+
 </RelativeLayout>

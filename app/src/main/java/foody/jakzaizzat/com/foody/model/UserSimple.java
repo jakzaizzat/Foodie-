@@ -12,4 +12,8 @@ public class UserSimple {
         this.age = age;
         this.isDeveloper = isDeveloper;
     }
+
+    public String getEmail(){
+        return email;
+    }
 }

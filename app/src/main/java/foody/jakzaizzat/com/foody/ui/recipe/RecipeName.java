@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,9 +20,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 import foody.jakzaizzat.com.foody.Controller.FileController;
 import foody.jakzaizzat.com.foody.R;
+import foody.jakzaizzat.com.foody.model.Recipe;
 import foody.jakzaizzat.com.foody.model.UserSimple;
 import foody.jakzaizzat.com.foody.ui.ResultActivity;
 
@@ -48,20 +53,62 @@ public class RecipeName extends AppCompatActivity {
                 String name = recipeName.getText().toString();
 
                 //JSON
-                UserSimple userObject = new UserSimple("Jakz", "email", 26, true);
+                Recipe recipeObj = new Recipe("Nasi Ikan", 2.00, 20);
                 Gson gson = new Gson();
-                String userJson = gson.toJson(userObject);
-                System.out.println(userJson);
-                writeMessage(name,userJson);
+                String recipeJson = gson.toJson(recipeObj);
+                System.out.println(recipeJson);
+
+                //Write into new Recipe File
+                writeMessage(name,recipeJson);
+
+                //Write into List Recipe File
+                    //writeMessage("list", recipeJson);
+                updateListFile(recipeObj);
+
 
                 //File
-
                 goAddIngredient(name);
             }
         });
 
 
 
+    }
+
+
+    public void updateListFile(Recipe recipe){
+        Recipe newRecipe = recipe;
+        String filename = "list.json";
+
+        //Store existing data on ArrayList
+        String listString = readMessage("list");
+
+        Gson updateGson = new Gson();
+
+        Type recipeListType = new TypeToken<ArrayList<Recipe>>(){}.getType();
+        List<Recipe> recipeList = updateGson.fromJson(listString, recipeListType);
+        System.out.println("New JSON FIlE " + recipeList);
+        //Add New Object in ArrayList
+        recipeList.add(recipe);
+
+        // Convert to JSON String
+        String newListRecipe = updateGson.toJson(recipeList);
+        System.out.println("New JSON FIlE " + newListRecipe);
+
+        //Re-Write in List.json File
+        String Message = newListRecipe;
+
+        try{
+            FileOutputStream fileOutputStream = openFileOutput(filename, MODE_PRIVATE);
+            fileOutputStream.write(Message.getBytes());
+            fileOutputStream.close();
+            Toast.makeText(getApplicationContext(), "List JSON Updated", Toast.LENGTH_LONG).show();
+
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void writeMessage(String name, String json){

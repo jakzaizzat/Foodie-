@@ -33,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
         public void goDashboard(String name){
-            Intent intent = new Intent(this, RecipeName.class);
+            Intent intent = new Intent(this, DashboardActivity.class);
             intent.putExtra("name", name);
             startActivity(intent);
         }

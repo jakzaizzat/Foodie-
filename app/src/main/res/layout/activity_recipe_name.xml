@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_recipe_name"
     android:layout_width="match_parent"
@@ -8,40 +9,98 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="80dp"
     tools:context="foody.jakzaizzat.com.foody.ui.recipe.RecipeName"
-    android:animateLayoutChanges="false">
+    android:animateLayoutChanges="false"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/ic_recipe"
+        android:id="@+id/imageView3"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/RecipeName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/RecipeName"
-        android:fontFamily="sans-serif"
-        android:singleLine="false"
         android:hint="Name of Recipe"
-        android:background="?android:attr/textColorLinkInverse"
-        android:textColor="@android:color/background_light"
+        android:background="@drawable/border"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
-        android:textAllCaps="false"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textColorHint="@android:color/background_light"/>
+        android:textColorHint="@color/purple"
+        style="@style/Widget.AppCompat.EditText"
+        android:singleLine="false"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/RecipeNameNext"
+        android:layout_alignStart="@+id/RecipeNameNext"
+        android:layout_marginBottom="9dp"
+        android:layout_marginTop="20dp"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/RecipeCost"
+        android:hint="Cost of This Recipe"
+        android:background="@drawable/border"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/purple"
+        style="@style/Widget.AppCompat.EditText"
+        android:singleLine="false"
+        android:layout_marginBottom="9dp"
+        android:layout_below="@+id/RecipeName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/RecipeQuantity"
+        android:hint="Quantity"
+        android:background="@drawable/border"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/purple"
+        style="@style/Widget.AppCompat.EditText"
+        android:singleLine="false"
+        android:layout_marginBottom="9dp"
+        android:layout_below="@+id/RecipeCost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:text="Next"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/RecipeName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
         android:id="@+id/RecipeNameNext"
-        android:paddingRight="30dp"
-        android:paddingLeft="30dp"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/purple"
+        android:background="@color/purple"
+        android:textColor="@android:color/background_light"
+        android:textStyle="normal|bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp"/>
+
 </RelativeLayout>

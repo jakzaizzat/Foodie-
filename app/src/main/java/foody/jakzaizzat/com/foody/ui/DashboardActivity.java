@@ -5,6 +5,7 @@ import android.nfc.Tag;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import org.parceler.Parcels;
 import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
@@ -47,6 +49,9 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        //Set ToolBar at the top
+
+
         //dashboardFoodName = (TextView) findViewById(R.id.dashboardFoodName);
 
         Intent intent = getIntent();
@@ -59,8 +64,8 @@ public class DashboardActivity extends AppCompatActivity {
         Log.d(TAG, mName);
 
 
-        mUserText = (TextView) findViewById(R.id.dashboardUserText);
-        mUserText.setText("Hi " + mName);
+        //mUserText = (TextView) findViewById(R.id.dashboardUserText);
+        //mUserText.setText("Hi " + mName);
 
         //Add New Recipe Button
         floatBtn = (FloatingActionButton) findViewById(R.id.DashboardAddNew);
@@ -80,13 +85,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         Recipe[] allRecipe = allRecipeJSON.fromJson(allRecipeJson, Recipe[].class);
 
-//        dashboardFoodName = (TextView) findViewById(R.id.dashboardFoodName);
-//        dashboardFoodName.setText(allRecipe[0].getName());
-//
-//        dashboardPriceName = (TextView) findViewById(R.id.dashboardFoodPrice);
-//
-//        String cost =  "RM " + allRecipe[0].getCost();
-//        dashboardPriceName.setText(cost);
 
         //Using ListView
 
@@ -104,7 +102,9 @@ public class DashboardActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String recipe = String.valueOf(parent.getItemAtPosition(position));
+                        Recipe recipeSingle = (Recipe) parent.getItemAtPosition(position);
                         Toast.makeText(DashboardActivity.this, recipe, Toast.LENGTH_LONG).show();
+                        goResult(recipeSingle);
                     }
                 }
         );
@@ -146,6 +146,12 @@ public class DashboardActivity extends AppCompatActivity {
             return "IO exception error";
         }
 
+    }
+
+    public void goResult(Recipe recipe){
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("RecipeObj", Parcels.wrap(recipe));
+        startActivity(intent);
     }
 
 

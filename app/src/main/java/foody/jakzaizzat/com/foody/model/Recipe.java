@@ -1,9 +1,15 @@
 package foody.jakzaizzat.com.foody.model;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Recipe {
     String name;
     double cost;
     int quantity;
+
+    public Recipe(){
+    }
 
     public Recipe(String name, double cost, int quantity){
         this.name = name;
@@ -34,4 +40,6 @@ public class Recipe {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+
 }

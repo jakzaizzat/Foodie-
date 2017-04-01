@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
@@ -7,24 +7,44 @@
               android:orientation="vertical"
               android:weightSum="1">
 
+
+
+
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="175dp"
+        android:layout_height="150dp"
         app:srcCompat="@mipmap/food"
         android:id="@+id/dashboardRowImg"
-        android:layout_weight="0.07"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="center"/>
+
 
     <TextView
-        android:text="Name"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:id="@+id/dashboardRowName"
-        />
-
-    <TextView
-        android:text="Price"
-        android:layout_width="match_parent"
+        android:text="Burger Bakar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="43dp"
+        android:id="@+id/dashboardRowName"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/dashboardRowImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:text="RM 3.80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="14dp"
         android:id="@+id/dashboardRowPrice"
-        android:layout_weight="0.07"/>
-</LinearLayout>
+        android:textSize="18sp"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBaseline="@+id/dashboardRowName"
+        android:layout_alignBottom="@+id/dashboardRowName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

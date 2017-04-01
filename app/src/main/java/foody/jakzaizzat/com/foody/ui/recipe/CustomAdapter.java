@@ -31,7 +31,7 @@ public class CustomAdapter extends ArrayAdapter<Recipe>{
         dashboardRowName.setText(singleRecipe.getName());
 
         String price = "RM " + singleRecipe.getCost();
-        dashboardRowPrice.setText(price);
+        dashboardRowPrice.setText(price + "0");
 
         return customView;
 

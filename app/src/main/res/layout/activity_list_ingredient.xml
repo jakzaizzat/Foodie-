@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_dashboard"
+    android:id="@+id/activity_list_ingredient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="foody.jakzaizzat.com.foody.ui.DashboardActivity"
-    android:theme="@style/AppTheme">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="layout.testing.ListIngredientActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -15,47 +15,35 @@
         android:background="#ba77ff"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/my_toolbar"
+        android:id="@+id/toolbar2"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
     </android.support.v7.widget.Toolbar>
 
     <TextView
-        android:text="Dashboard"
+        android:text="List of Ingredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textColor="@android:color/background_light"
         android:textAllCaps="true"
         android:textAlignment="center"
-        android:layout_marginTop="17dp"
         android:textSize="18sp"
-        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/toolbar2"
         android:layout_centerHorizontal="true"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"/>
+        android:layout_marginBottom="17dp"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_delete"
-        android:id="@+id/DashboardAddNew"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@android:drawable/stat_sys_upload_done"
-        app:backgroundTint="@color/purple"
-        android:layout_marginBottom="20dp"/>
-
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recipeListView"
+        android:id="@+id/imageButton"
+        android:background="@color/purple"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/my_toolbar"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/toolbar2"/>
 
 </RelativeLayout>

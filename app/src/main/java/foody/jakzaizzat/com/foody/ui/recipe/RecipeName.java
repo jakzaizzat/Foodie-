@@ -3,6 +3,7 @@ package foody.jakzaizzat.com.foody.ui.recipe;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.parceler.Parcels;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,6 +36,8 @@ import foody.jakzaizzat.com.foody.ui.ResultActivity;
 public class RecipeName extends AppCompatActivity {
 
     private TextView recipeName;
+    private TextView recipeCost;
+    private TextView recipeQuantity;
     private Button recipeNameNext;
 
     @Override
@@ -42,6 +47,8 @@ public class RecipeName extends AppCompatActivity {
 
 
         recipeName = (TextView) findViewById(R.id.RecipeName);
+        recipeCost = (TextView) findViewById(R.id.RecipeCost);
+        recipeQuantity = (TextView) findViewById(R.id.RecipeQuantity);
         recipeNameNext = (Button) findViewById(R.id.RecipeNameNext);
 
 
@@ -51,9 +58,10 @@ public class RecipeName extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = recipeName.getText().toString();
-
+                double cost = Double.parseDouble(recipeCost.getText().toString());
+                int quantity = Integer.parseInt(recipeQuantity.getText().toString());
                 //JSON
-                Recipe recipeObj = new Recipe("Nasi Ikan", 2.00, 20);
+                Recipe recipeObj = new Recipe(name, cost, quantity);
                 Gson gson = new Gson();
                 String recipeJson = gson.toJson(recipeObj);
                 System.out.println(recipeJson);
@@ -67,7 +75,7 @@ public class RecipeName extends AppCompatActivity {
 
 
                 //File
-                goAddIngredient(name);
+                goAddIngredient(name, recipeObj);
             }
         });
 
@@ -156,13 +164,12 @@ public class RecipeName extends AppCompatActivity {
 
     }
 
-    public void goAddIngredient(String name){
+    public void goAddIngredient(String name, Recipe recipe){
         Intent intent = new Intent(this, ResultActivity.class);
-
         //get message
         String tempJSON = readMessage(name);
 
-        intent.putExtra("JsonFile", tempJSON);
+        intent.putExtra("RecipeObj", Parcels.wrap(recipe));
         startActivity(intent);
     }
 }

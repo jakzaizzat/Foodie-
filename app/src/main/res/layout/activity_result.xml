@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_result"
     android:layout_width="match_parent"
@@ -12,13 +13,125 @@
     tools:context="foody.jakzaizzat.com.foody.ui.ResultActivity">
 
     <TextView
-        android:text="This is a result page"
+        android:text="Result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
-        android:id="@+id/resultTextView"
+        android:layout_marginTop="73dp"
+        android:id="@+id/textView4"
         android:textStyle="normal|bold"
-        android:textSize="34sp"/>
+        android:textAllCaps="true"
+        android:textSize="36sp"
+        android:textColor="@color/purple"/>
+
+    <TextView
+        android:text="RM 2.00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ResultSell"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/ResultCost"
+        android:layout_alignBottom="@+id/ResultCost"
+        android:textStyle="normal|bold"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:text="Sell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/ResultSell"
+        android:layout_centerHorizontal="true"
+        android:textSize="10sp"
+        android:textColor="@color/purple"/>
+
+    <Button
+        android:text="Back To Dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:id="@+id/ResultBtn"
+        android:background="@color/purple"
+        android:textColor="@android:color/white"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:text="30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ResultQuantity"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_alignBaseline="@+id/ResultSell"
+        android:layout_alignBottom="@+id/ResultSell"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignStart="@+id/textView10"/>
+
+    <TextView
+        android:text="for"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView7"
+        android:textSize="18sp"
+        android:textColor="@color/purple"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ResultName"
+        android:textStyle="normal|bold"
+        android:textSize="36sp"
+        android:layout_below="@+id/textView7"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/purple"
+        android:paddingBottom="20dp"/>
+
+    <TextView
+        android:text="Quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:textSize="10sp"
+        android:textColor="@color/purple"
+        android:layout_below="@+id/ResultQuantity"
+        android:layout_toRightOf="@+id/ResultBtn"
+        android:layout_toEndOf="@+id/ResultBtn"
+        />
+
+    <TextView
+        android:text="RM 1.30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ResultCost"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:text="Cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textAlignment="textStart"
+        android:textSize="10sp"
+        android:textColor="@color/purple"
+        android:layout_below="@+id/ResultCost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"/>
+
 </RelativeLayout>

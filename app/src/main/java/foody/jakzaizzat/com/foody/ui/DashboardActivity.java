@@ -1,6 +1,7 @@
 package foody.jakzaizzat.com.foody.ui;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.nfc.Tag;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -49,10 +50,11 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        //Set ToolBar at the top
+        Typeface ProximaB = Typeface.createFromAsset(getAssets(),  "fonts/Proxima Nova Semibold.otf");
+        TextView textView = (TextView) findViewById(R.id.textView);
 
+        textView.setTypeface(ProximaB);
 
-        //dashboardFoodName = (TextView) findViewById(R.id.dashboardFoodName);
 
         Intent intent = getIntent();
         mName = intent.getStringExtra("name");
@@ -64,8 +66,6 @@ public class DashboardActivity extends AppCompatActivity {
         Log.d(TAG, mName);
 
 
-        //mUserText = (TextView) findViewById(R.id.dashboardUserText);
-        //mUserText.setText("Hi " + mName);
 
         //Add New Recipe Button
         floatBtn = (FloatingActionButton) findViewById(R.id.DashboardAddNew);
@@ -108,10 +108,6 @@ public class DashboardActivity extends AppCompatActivity {
                     }
                 }
         );
-
-
-
-
 
     }
 

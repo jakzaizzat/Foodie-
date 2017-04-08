@@ -1,6 +1,7 @@
 package foody.jakzaizzat.com.foody.ui.recipe;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -25,8 +26,17 @@ public class CustomAdapter extends ArrayAdapter<Recipe>{
         View customView = recipesInflater.inflate(R.layout.dashboard_row, parent, false);
 
         Recipe singleRecipe = getItem(position);
+
+        //Set Initial Font
+        Typeface ProximaReg = Typeface.createFromAsset(getContext().getAssets(),  "fonts/ProximaNova-Regular.otf");
+        Typeface ProximaBold = Typeface.createFromAsset(getContext().getAssets(),  "fonts/Proxima Nova Semibold.otf");
+
         TextView dashboardRowName = (TextView) customView.findViewById(R.id.dashboardRowName);
         TextView dashboardRowPrice = (TextView) customView.findViewById(R.id.dashboardRowPrice);
+
+        //Set Font family
+        dashboardRowName.setTypeface(ProximaReg);
+        dashboardRowPrice.setTypeface(ProximaReg);
 
         dashboardRowName.setText(singleRecipe.getName());
 

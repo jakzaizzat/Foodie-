@@ -1,25 +1,9 @@
 package foody.jakzaizzat.com.foody.model;
 
-import org.parceler.Parcel;
-
-import java.util.List;
-
-@Parcel
-public class Recipe {
+public class RecipeList {
     String name;
     double cost;
     int quantity;
-    List<Ingredient> list;
-
-    public Recipe(){
-    }
-
-    public Recipe(String name, double cost, int quantity, List<Ingredient> list){
-        this.name = name;
-        this.cost = cost;
-        this.quantity = quantity;
-        this.list = list;
-    }
 
     public String getName() {
         return name;
@@ -45,11 +29,10 @@ public class Recipe {
         this.quantity = quantity;
     }
 
-    public List<Ingredient> getList() {
-        return list;
-    }
+    public RecipeList(String name, double cost, int quantity) {
 
-    public void setList(List<Ingredient> list) {
-        this.list = list;
+        this.name = name;
+        this.cost = cost;
+        this.quantity = quantity;
     }
 }

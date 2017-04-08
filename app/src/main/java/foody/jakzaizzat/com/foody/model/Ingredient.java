@@ -1,5 +1,8 @@
 package foody.jakzaizzat.com.foody.model;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Ingredient {
     String name;
     double price;
@@ -7,7 +10,10 @@ public class Ingredient {
     double cost;
     String category;
 
-    public Ingredient(String name, double price, int usage, double cost, String category){
+    public Ingredient(){
+
+    }
+    public Ingredient(String name, double price, int usage, double cost, String category) {
         this.name = name;
         this.price = price;
         this.usage = usage;

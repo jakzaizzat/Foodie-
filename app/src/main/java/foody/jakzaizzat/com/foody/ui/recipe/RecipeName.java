@@ -29,6 +29,7 @@ import java.util.List;
 
 import foody.jakzaizzat.com.foody.Controller.FileController;
 import foody.jakzaizzat.com.foody.R;
+import foody.jakzaizzat.com.foody.model.Ingredient;
 import foody.jakzaizzat.com.foody.model.Recipe;
 import foody.jakzaizzat.com.foody.model.UserSimple;
 import foody.jakzaizzat.com.foody.ui.ResultActivity;
@@ -60,8 +61,15 @@ public class RecipeName extends AppCompatActivity {
                 String name = recipeName.getText().toString();
                 double cost = Double.parseDouble(recipeCost.getText().toString());
                 int quantity = Integer.parseInt(recipeQuantity.getText().toString());
+
                 //JSON
-                Recipe recipeObj = new Recipe(name, cost, quantity);
+                List<Ingredient> list = new ArrayList<>();
+                list.add(new Ingredient("Telur", 10, 30, 0.33, "material"));
+                list.add(new Ingredient("Ayam", 8, 8, 1, "material"));
+                list.add(new Ingredient("Sayur", 3, 5, 0.6, "material"));
+
+
+                Recipe recipeObj = new Recipe(name, cost, quantity,list);
                 Gson gson = new Gson();
                 String recipeJson = gson.toJson(recipeObj);
                 System.out.println(recipeJson);
